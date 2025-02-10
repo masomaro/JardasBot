@@ -1,6 +1,7 @@
 #https://raw.githubusercontent.com/Desassossego/JardasBot/refs/heads/main/methods/response_handle.py
 ###
 import random
+import datetime #para certas respostas em determinado horário
 from discord import Message
 from discord.ext import commands
 from database import DBbotvars, DBgeneral
@@ -51,7 +52,16 @@ async def respond_acordar(ctx: commands.Context):
     excluded = DBgeneral.get_least_favourable()
     if excluded:
         response += f" Excepto tu {excluded}! Tu podes ir pro caralho"
+    
+    #Entre as 1am e 7am o Jardas responde "Mas vocês não dormem, seus caralhos?"
+    current_time = datetime.now().time()
+    start_time = time(1, 0)
+    end_time = time(7, 0)
+    if (current_time >= start_time and current_time <= end_time):
+        response += "Mas vocês não dormem, seus caralhos? >:[ "
+    
     await ctx.channel.send(response)
+
 
 
 async def respond_sleep(ctx: commands.Context):
