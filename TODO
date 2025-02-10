@@ -1,5 +1,5 @@
 - Da 01:00 às 07:00, se alguém mandar mensagem na taverna, quero que o Jardas diga "Mas vocês não dormem, seus caralhos?"
-    UPDATE: feito no responses_handlers no respond_acordar. falta testar.
+    UPDATE: feito no responses_handlers no respond_sleep. falta testar.
     
 - !nuke não está a ter efeito no nuke counter
 - stats devia printar os emojis
